@@ -3,7 +3,7 @@
 
 Republishes of my original articles from [LinkedIn](https://www.linkedin.com/in/mpabcd/) to make them more accessible.
 
-# [JUnit: I'm no stranger to failure...](/no-stranger-to-faulure)
+# [JUnit: I'm no stranger to failure...](/no-stranger-to-failure)
 
-# [Streams... don't go with the flow?](/streams-dont-go-flow)
+# [Streams... don't go with the flow?](/streams-dont-go-with-the-flow)
 
