@@ -8,11 +8,13 @@ In brief, the demonstration app called 20 HTTP requests, each with a 2s response
 ## 1. Sequential Stream approach:
 
 ![Java code: getIds().stream().map(serviceInvoker::invoke).mapToDouble(Client::purchases).sum()](1-stream.png)
+
 Time taken: 42,284ms (42 seconds!)
 
 ## 2. Parallel Stream approach
 
 ![Java code: getIds().parallelStream().map(serviceInvoker::invoke).mapToDouble(Client::purchases).sum()](2-parallel-stream.png)
+
 Time taken: 6336ms (6 seconds!)
 
 3. CompletableFuture (with 100 threads) approach:
@@ -20,6 +22,7 @@ Time taken: 6336ms (6 seconds!)
 
 ![Java code: executorService = Executors.newFixedThreadPool(100)](3-executor.png)
 ![Java code: futureRequests = getIds().stream().map(id -> CompletableFuture.supplyAsync(() -> serviceInvoker.invoke(id), executorService)).toList();         final var totalPurchases = futureRequests.stream().map(CompletableFuture::join).mapToDouble(Client::purchases).sum()](4-completable-future.png)
+
 Time taken: 2192ms (2seconds!)
 
 ## So, the tradeoffs:
