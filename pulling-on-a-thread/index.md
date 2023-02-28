@@ -1,5 +1,7 @@
 _This is a republish of [my article on LinkedIn](https://www.linkedin.com/pulse/pulling-thread-mark-paxton/) to make it more accessible._
+
 # Pulling on a Thread
+![](header.jpeg)
 
 Way back in 2015 Xavier Padró published a very clear and concise article describing various ways to handle multiple blocking IO operations using Java8 streams and CompletableFuture.
 
@@ -30,9 +32,12 @@ Time taken: 2192ms (2seconds!)
 > CompletableFuture looks like the winner, but practically there are questions. The sample doesn’t touch on error conditions, but that aside, why 100? It’s an arbitrary magic number, which needs to be chosen wisely, and managed carefully.
 For details, see here.
 
-We’ve also got a bit more code to maintain… it’s not ideal.
+We’ve also got a bit more c ode to maintain… it’s not ideal.
+
+
 
 ## Enter Reactive Programming
+
 These were the approaches available 7 years ago, soon after java8 was released. Now things have moved on and we have Reactive Streams. Project Reactor implements this and is supported by Spring WebFlux.
 
 There are many facets to the reactive approach, and many ways to learn about it, but for simplicity, to important aspects are:
