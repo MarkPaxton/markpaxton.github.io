@@ -17,7 +17,7 @@ Time taken: 42,284ms (42 seconds!)
 
 Time taken: 6336ms (6 seconds!)
 
-3. CompletableFuture (with 100 threads) approach:
+## 3. CompletableFuture (with 100 threads) approach:
 
 
 ![Java code: executorService = Executors.newFixedThreadPool(100)](3-executor.png)
