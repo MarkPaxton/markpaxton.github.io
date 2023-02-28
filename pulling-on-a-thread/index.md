@@ -1,7 +1,7 @@
 _This is a republish of [my article on LinkedIn](https://www.linkedin.com/pulse/pulling-thread-mark-paxton/) to make it more accessible._
 # Pulling on a Thread
 
-Way back in 2015 Xavier Padró published a very clear and concise article describing various ways to handle multiple blocking IO operations using Java8 streams and CompletableFuture.
+Way back in 2015 [Xavier Padró](https://www.linkedin.com/in/xavierpadro) published a [very clear and concise article](https://xpadro.com/2015/03/improving-performance-non-blocking-processing-of-streams.html) describing various ways to handle multiple blocking IO operations using Java8 streams and CompletableFuture.
 
 In brief, the demonstration app called 20 HTTP requests, each with a 2s response time, i.e. each HTTP call blocks for 2 seconds before returning. This was done sequentially, then concurrently using three different techniques, with outcomes as below:
 
