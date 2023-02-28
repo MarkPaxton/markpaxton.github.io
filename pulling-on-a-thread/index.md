@@ -3,25 +3,28 @@ _This is a republish of [my article on LinkedIn](https://www.linkedin.com/pulse/
 # Pulling on a Thread
 ![](header.jpeg)
 
-Way back in 2015 Xavier Padró published a very clear and concise article describing various ways to handle multiple blocking IO operations using Java8 streams and CompletableFuture.
+Way back in 2015 [Xavier Padró](https://www.linkedin.com/in/xavierpadro) published a [very clear and concise article](https://xpadro.com/2015/03/improving-performance-non-blocking-processing-of-streams.html) describing various ways to handle multiple blocking IO operations using Java8 streams and CompletableFuture.
 
 In brief, the demonstration app called 20 HTTP requests, each with a 2s response time, i.e. each HTTP call blocks for 2 seconds before returning. This was done sequentially, then concurrently using three different techniques, with outcomes as below:
 
 ## 1. Sequential Stream approach:
 
 ![Java code: getIds().stream().map(serviceInvoker::invoke).mapToDouble(Client::purchases).sum()](1-stream.png)
+
 Time taken: 42,284ms (42 seconds!)
 
 ## 2. Parallel Stream approach
 
 ![Java code: getIds().parallelStream().map(serviceInvoker::invoke).mapToDouble(Client::purchases).sum()](2-parallel-stream.png)
+
 Time taken: 6336ms (6 seconds!)
 
-3. CompletableFuture (with 100 threads) approach:
+## 3. CompletableFuture (with 100 threads) approach:
 
 
 ![Java code: executorService = Executors.newFixedThreadPool(100)](3-executor.png)
 ![Java code: futureRequests = getIds().stream().map(id -> CompletableFuture.supplyAsync(() -> serviceInvoker.invoke(id), executorService)).toList();         final var totalPurchases = futureRequests.stream().map(CompletableFuture::join).mapToDouble(Client::purchases).sum()](4-completable-future.png)
+
 Time taken: 2192ms (2seconds!)
 
 ## So, the tradeoffs:
